@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import './UserManage.scss';
-import { getAllUsers, createNewuserService } from '../../services/userService';
+import { getAllUsers, createNewuserService, deleteUservice } from '../../services/userService';
 import ModalUser from './ModalUser';
+import { emitter } from '../../utils/emitter';
+
 class UserManage extends Component {
 
     constructor(props) {
@@ -50,9 +52,24 @@ class UserManage extends Component {
                 this.setState({
                     isOpenModalUser: false
                 })
+                emitter.emit('EVENT_CLEAR_MODAL_DATA')
             }
         } catch (e) {
             console.log(e)
+        }
+    }
+
+    handleDeleteUser = async (user) => {
+        console.log('delete', user)
+        try {
+            let res = await deleteUservice(user.id)
+            if (res && res.errCode === 0) {
+                await this.getAllUserFromReact();
+            } else {
+                alert(res.errMessage)
+            }
+        } catch (e) {
+            console.log(e);
         }
     }
 
@@ -89,14 +106,14 @@ class UserManage extends Component {
                             {arrUsers && arrUsers.map((item, index) => {
 
                                 return (
-                                    <tr>
+                                    <tr key={index}>
                                         <td>{item.email}</td>
                                         <td>{item.firstName}</td>
                                         <td>{item.lastName}</td>
                                         <td>{item.address}</td>
                                         <td>
                                             <button className='btn-edit'><i className="fas fa-pencil-alt"></i></button>
-                                            <button className='btn-delete'><i className="fas fa-trash"></i></button>
+                                            <button className='btn-delete' onClick={() => this.handleDeleteUser(item)}><i className="fas fa-trash"></i></button>
                                         </td>
                                     </tr>
                                 )
