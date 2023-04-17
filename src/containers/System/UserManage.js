@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import './UserManage.scss';
-import { getAllUsers, createNewuserService, deleteUservice, editUserService } from '../../services/userService';
+import { getAllUsers, createNewUserService, deleteUservice, editUserService } from '../../services/userService';
 import ModalUser from './ModalUser';
 import ModalEditUser from './ModalEditUser';
 import { emitter } from '../../utils/emitter';
@@ -52,9 +52,9 @@ class UserManage extends Component {
         })
     }
 
-    createNewuser = async (data) => {
+    createNewUser = async (data) => {
         try {
-            let response = await createNewuserService(data);
+            let response = await createNewUserService(data);
             if (response && response.errCode !== 0) {
                 alert(response.errMessage)
             } else {
