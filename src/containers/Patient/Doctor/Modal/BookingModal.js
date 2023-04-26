@@ -141,6 +141,14 @@ class BookingModal extends Component {
         })
         if (res && res.errCode === 0) {
             toast.success('Booking a new appointment succeed!')
+            this.setState({
+                fullName: '',
+                phoneNumber: '',
+                email: '',
+                address: '',
+                reason: '',
+                selectedGender: ''
+            })
             this.props.closeBookingClose();
         } else {
             toast.error('Booking a new appoinment error!')
