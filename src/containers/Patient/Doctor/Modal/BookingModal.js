@@ -264,13 +264,13 @@ class BookingModal extends Component {
 
                     </div>
                     <div className='booking-modal-footer'>
-                        <button className='btn-booking-confirm'
+                        <button className='btn-booking-confirm active'
                             onClick={() => this.handleConfirmBooking()}
                         >
                             <FormattedMessage id="patient.booking-modal.btnConfirm" />
 
                         </button>
-                        <button className='btn-booking-cancer'
+                        <button className='btn-booking-cancel active'
                             onClick={closeBookingClose}
                         >
                             <FormattedMessage id="patient.booking-modal.btnCancel" />

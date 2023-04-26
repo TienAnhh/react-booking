@@ -36,14 +36,23 @@
                 outline: none;
                 padding: 5px 8px;
                 border-radius: 3px;
+                box-shadow: 4px 4px black;
+            }
+
+            button:active {
+                box-shadow: none;
+                transform: translate(4px 4px);
+                transition: 0.25s;
             }
 
             .btn-booking-confirm {
                 background-color: orange;
             }
 
+
+
             .btn-booking-cancel {
-                background-color: grey;
+                background-color: grey
             }
         }
     }
