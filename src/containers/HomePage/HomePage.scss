@@ -37,11 +37,11 @@
 
 .section-share {
     &.section-specialty {
-        background: white;
+        background: #f5f5f5;
     }
 
     &.section-outstanding-doctor {
-        background: white;
+        background: #f5f5f5;
     }
 
     &.section-about {
@@ -64,7 +64,7 @@
                 background-color: white;
 
                 &.section-specialty {
-                    background-image: url('../../assets/specialty/120741-tim-mach.jpg');
+                    // background-image: url('../../assets/specialty/120741-tim-mach.jpg');
                 }
 
                 &.section-medical-facility {
@@ -81,6 +81,8 @@
                 &.section-handbook {
                     background-image: url('../../assets/handbook/153115-image6.png');
                 }
+
+
             }
         }
     }
@@ -110,7 +112,7 @@
                 border: none;
                 outline: none;
                 display: block;
-                background: white;
+                background: rgba(57, 57, 57, 0.063);
                 color: black;
                 cursor: pointer;
                 text-transform: uppercase;
